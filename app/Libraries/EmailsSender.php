@@ -7,10 +7,13 @@ class EmailsSender
 
   public function SendEmails( $data = [])
   {
-
+    # Caragamos la configuración del envió de emails
     $config = config('Email');
+
+    # Modificamos los datos de configuración con los que hemos puesto en nuestro método
     $config->OverWriteEmailConfigs();
 
+    # Inicializamos el servicio de envío de mails de CI4
     $email = \Config\Services::email();
     $email->initialize( $config);
 
